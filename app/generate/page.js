@@ -13,7 +13,7 @@ const GeneratePage = () => {
     // const [link, setlink] = useState("")
     // const [linkText, setLinkText] = useState("")
     const [links, setlinks] = useState([{ link: "", linkText: "" }])
-    const [handle, sethandle] = useState(searchParams.get('handle'))
+    const [handle, sethandle] = useState(searchParams?.get('handle') || "")
     const [pic, setpic] = useState("")
     const [desc, setdesc] = useState("")
 
@@ -82,7 +82,7 @@ const GeneratePage = () => {
             redirect: "follow"
         };
 
-        const r = await fetch("http://localhost:3000/api/add", requestOptions)
+        const r = await fetch("/api/add", requestOptions)
         const result = await r.json();
         if (result.success) {
             toast.success(result.message, {
