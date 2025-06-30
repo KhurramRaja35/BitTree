@@ -1,5 +1,5 @@
 "use client"
-
+export const dynamic = "force-dynamic"; // <-- 💥 ADD THIS
 import { React, useState, useEffect } from 'react'
 import TiltedCard from '@/titleCard/TiltedCard/TiltedCard'
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,6 +17,7 @@ const GeneratePage = () => {
         const initialHandle = searchParams?.get("handle");
         if (initialHandle) sethandle(initialHandle);
     }, [searchParams]);
+    
     const [pic, setpic] = useState("")
     const [desc, setdesc] = useState("")
 
@@ -231,4 +232,4 @@ const GeneratePage = () => {
     )
 }
 
-export default GeneratePage
+export default GeneratePage;
