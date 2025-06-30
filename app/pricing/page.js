@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const pricing = () => {
+const Pricing = () => {
     return (
         <>
             <section className='bg-[#f3f3f1] min-h-[100vh] pt-30 pb-10 '>
@@ -433,4 +433,4 @@ const pricing = () => {
     )
 }
 
-export default pricing
+export default Pricing
