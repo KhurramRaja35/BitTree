@@ -1,5 +1,6 @@
 "use client"
-import { React, useState } from 'react'
+
+import { React, useState, useEffect } from 'react'
 import TiltedCard from '@/titleCard/TiltedCard/TiltedCard'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,11 +10,13 @@ const GeneratePage = () => {
 
     const searchParams = useSearchParams()
 
-    // each state for each input
-    // const [link, setlink] = useState("")
-    // const [linkText, setLinkText] = useState("")
     const [links, setlinks] = useState([{ link: "", linkText: "" }])
-    const [handle, sethandle] = useState(searchParams?.get('handle') || "")
+
+    const [handle, sethandle] = useState("")
+    useEffect(() => {
+        const initialHandle = searchParams?.get("handle");
+        if (initialHandle) sethandle(initialHandle);
+    }, [searchParams]);
     const [pic, setpic] = useState("")
     const [desc, setdesc] = useState("")
 
@@ -215,14 +218,14 @@ const GeneratePage = () => {
 
                     </div>
                 </div>
-                
+
                 <div className="col2 hidden lg:flex lg:h-screen ">
 
                     <img className="mix-blend-darken" src="/generate.png" alt="" />
                 </div>
 
 
-                
+
             </div>
         </>
     )
